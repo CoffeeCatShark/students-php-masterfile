@@ -1,21 +1,34 @@
 <?php
+include 'conn.php';
     $fname = $_POST['first_name'];
     $lname = $_POST['last_name'];
     $mname = $_POST['middle_name'];
     $id = $_POST['student_number'];
 
+    $vdup = 0;
+    $vindex=0;
+
+    $sql = "SELECT * FROM studenttable where studentNumber='$id' order by student_Index";
+    $result = $conn->query($sql);
+    if($result->num_rows > 0) 
+    {
+        while($row = $result->fetch_assoc())
+        {
+            
+            $vdup=1;
+            
+        }
+    }
 
 
-$conn = new mysqli('localhost','root','','infomandbv2');
-if($conn->connect_error){
-    die('connection failed : '.$conn->connect_error);
+
+if($vdup!=0){
+    echo "                  Insert Failed. Duplicate ID";
 }
 else{
-    $stmt = $conn->prepare('insert into studenttable(studentNumber, studentFirstName, studentLastName, studentMiddleName)
-        values(?,?,?,?)');
-    $stmt->bind_param("isss",$id,$fname,$lname,$mname);
-    $stmt->execute();
-    echo "Customer Added Successfully";
+    $conn->query("INSERT INTO `studenttable` SET `studentFirstName` = '$fname',
+     `studentLastName` = '$lname', `studentMiddleName` = '$mname', `studentNumber` = '$id'");
+    echo "                  Student Added Successfully.";
 }
 
 

@@ -8,7 +8,6 @@ $db_name = "infomandbv2";
 
 
     if($conn){
-        echo "Connected";
     }
     else{
         echo "Not Connected";

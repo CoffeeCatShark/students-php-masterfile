@@ -50,7 +50,7 @@ $sql = "SELECT * FROM studenttable where student_Index='$id'";
                 <label >Enter First Name:</label>
                 </td>
                 <td>
-                <input type="text" name="txtfirstname" id="txtfirstname" value="<?php echo $vfirstname; ?>">
+                <input readonly type="text" name="txtfirstname" id="txtfirstname" value="<?php echo $vfirstname; ?>">
                 </td>
             </tr>
             
@@ -59,7 +59,7 @@ $sql = "SELECT * FROM studenttable where student_Index='$id'";
                 <label >Enter Middle Name:</label>
                 </td>
                 <td>
-                <input type="text" name="txtmiddlename" id="txtmiddlename" value="<?php echo $vmiddlename; ?>">
+                <input readonly type="text" name="txtmiddlename" id="txtmiddlename" value="<?php echo $vmiddlename; ?>">
                 <input type="hidden" value='<?php echo $id?>' name="index">
                 </td>
             </tr>

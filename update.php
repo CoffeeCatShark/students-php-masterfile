@@ -20,7 +20,7 @@ $sql = "SELECT * FROM studenttable where student_Index='$id'";
 <html>
     <body>
     <form action="update_.php" method="post">
- 
+    <input type="hidden" name="txtstudentnumberold" id="txtstudentnumberold" value="<?php echo $vstudentnumber; ?>">
         <table border="1">    
             <tr>
                 <td colspan="2" align=center>
@@ -32,7 +32,7 @@ $sql = "SELECT * FROM studenttable where student_Index='$id'";
                 <label >Enter Student Number:</label>
                 </td>
                 <td>
-                <input type="text" name="txtstudentnumber" id="txtstudentnumber" value="<?php echo $vstudentnumber; ?>">
+                <input type="number" name="txtstudentnumber" id="txtstudentnumber" value="<?php echo $vstudentnumber; ?>">
                 </td>
             </tr>
             
